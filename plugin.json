@@ -1,0 +1,48 @@
+{
+    "name": "URL Regex",
+    "url": "",
+    "description": "A PostHog plugin to regex url strings in your application to remove strings such as UIDs.",
+    "main": "index.ts",
+    "posthogVersion": ">= 1.25.0",
+    "config": [
+        {
+            "markdown": "Regex urls in your application to remove all unwanted clutter from URLs such as UIDs. By default, unwanted elements are replaced by an underscore (_)"
+        },
+        {
+            "key": "regexString",
+            "name": "Regex String",
+            "type": "string",
+            "default": "",
+            "hint": "Enter the Regex String to be used",
+            "required": true
+        },
+        {
+            "key": "regexFlag",
+            "name": "Regex Flag",
+            "type": "string",
+            "default": "g",
+            "hint": "Add flags as desired. Default value is global(g)",
+            "required": true
+        },
+        {
+            "key": "replacement",
+            "name": "Replacement",
+            "type": "string",
+            "default": "@@@@@",
+            "hint": "Enter the replacement String to be used",
+            "required": false
+        },
+        {
+            "key": "mergeFlag",
+            "name": "Merge to $current_url?",
+            "type": "boolean",
+            "default": "true",
+            "hint": "True changes the value of $current_url to the regexed url value. False creates a new property for the event titled $regexed_url.",
+            "required": true,
+            "choices": [
+                "true",
+                "false"
+            ]
+        }
+    ]
+}
