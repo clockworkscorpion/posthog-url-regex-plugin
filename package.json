@@ -1,7 +1,7 @@
 {
     "private": false,
     "name": "posthog-url-regex-plugin",
-    "version": "1.0.0",
+    "version": "1.0.1",
     "description": "A PostHog plugin to regex url strings in your application to remove strings such as UIDs.",
     "keywords": [
         "regex",

@@ -9,8 +9,8 @@ A PostHog plugin to apply regex expressions to your urls, which allows you to pe
 Using Regexed URLs will allow you to gain better insights from your url data, specific to your categorization needs. This plugin can be used as a preprocessing step for your data, before you use PostHog Cloud or any external database.
 
 ### Example
-> https://www.bbc.com/news/world-us-canada-62986812
-> $regexed_url: https://www.bbc.com/news/world-us-canada-NEWS
+> - https://www.bbc.com/news/world-us-canada-62986812
+> - $regexed_url: https://www.bbc.com/news/world-us-canada-NEWS
 
 [PostHog](https://posthog.com/) is the first open-source analytics platform, especially designed for startups and developers. PostHog allows users to use their tools either on the managed PostHog Cloud, or the self-hosted version. Try it out and show your support!
 
@@ -39,9 +39,9 @@ Using Regexed URLs will allow you to gain better insights from your url data, sp
 
 To develop this plugin locally, first clone it and then run specs. Please make sure you've got Node and Yarn (recommended) or npm installed.
 
-> git clone https://github.com/clockworkscorpion/posthog-url-regex-plugin.git
-> yarn install
-> yarn test --watch
+> - git clone https://github.com/clockworkscorpion/posthog-url-regex-plugin.git
+> - yarn install
+> - yarn test --watch
 
 ## Installation
 
@@ -56,5 +56,5 @@ This plugin was created as a starter project, so feel free to contribute, start 
 
 ## Contributing
 
-Contributions of code, issues, reviews and documentation are always welcome! This is my first Github-based Open Source contribution, as well as one of my first TypeScript projects. All feedback related to my coding style is welcome!
+Contributions of code, issues, reviews and documentation are always welcome! This is my first Github-based Open Source contribution, as well as one of my first TypeScript projects. All feedback is welcome!
 
