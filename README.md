@@ -12,7 +12,7 @@ Using Regexed URLs will allow you to gain better insights from your url data, sp
 > - https://www.bbc.com/news/world-us-canada-62986812
 > - $regexed_url: https://www.bbc.com/news/world-us-canada-NEWS
 
-[PostHog](https://posthog.com/) is the first open-source analytics platform, especially designed for startups and developers. PostHog allows users to use their tools either on the managed PostHog Cloud, or the self-hosted version. Try it out and show your support!
+[PostHog](https://posthog.com/) is the first open-source product analytics platform, especially designed for startups and developers. PostHog allows users to use their tools either on the managed PostHog Cloud, or the self-hosted version. Try it out and show your support!
 
 ### [Join the PH Slack community.](https://join.slack.com/t/posthogusers/shared_invite/enQtOTY0MzU5NjAwMDY3LTc2MWQ0OTZlNjhkODk3ZDI3NDVjMDE1YjgxY2I4ZjI4MzJhZmVmNjJkN2NmMGJmMzc2N2U3Yjc3ZjI5NGFlZDQ)
 
