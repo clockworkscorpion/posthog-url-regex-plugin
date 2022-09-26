@@ -37,7 +37,7 @@ function buildEventWithoutCurrentUrl(): PluginEvent {
   return event;
 }
 
-function getMeta(config: {regexPattern: string, regexFlag: string, replacement: string|null, mergeFlag: boolean}): PluginMeta<UrlRegexPlugin> {
+function getMeta(config: {regexPattern: string, regexFlag: string, replacement: string|null}): PluginMeta<UrlRegexPlugin> {
   return {config} as PluginMeta<UrlRegexPlugin>;
 }
 
@@ -46,7 +46,7 @@ describe("processEvent", () => {
     const sourceEvent = buildPageViewEvent(
         "https://www.bbc.com/news/world-us-canada-62986812"
     );
-    const processedEvent = processEvent(sourceEvent, getMeta({regexPattern: "12332143", regexFlag: "g", replacement: "NEWS", mergeFlag: false}));
+    const processedEvent = processEvent(sourceEvent, getMeta({regexPattern: "12332143", regexFlag: "g", replacement: "NEWS"}));
     expect(processedEvent?.properties?.$regexed_url).toEqual(
       "https://www.bbc.com/news/world-us-canada-62986812"
     );
@@ -56,7 +56,7 @@ describe("processEvent", () => {
     const sourceEvent = buildPageViewEvent(
       "https://www.bbc.com/news/world-us-canada-62986812"
     );
-    const processedEvent = processEvent(sourceEvent, getMeta({regexPattern: '\\d+', regexFlag: "g", replacement: "NEWS", mergeFlag: false}));
+    const processedEvent = processEvent(sourceEvent, getMeta({regexPattern: '\\d+', regexFlag: "g", replacement: "NEWS"}));
     expect(processedEvent?.properties?.$regexed_url).toEqual(
       "https://www.bbc.com/news/world-us-canada-NEWS"
     );
@@ -66,27 +66,16 @@ describe("processEvent", () => {
     const sourceEvent = buildPageViewEvent(
       "https://www.bbc.com/news/world-us-canada-62986812"
     );
-    const processedEvent = processEvent(sourceEvent, getMeta({regexPattern: '\\d+', regexFlag: "g", replacement: null,mergeFlag: false}));
+    const processedEvent = processEvent(sourceEvent, getMeta({regexPattern: '\\d+', regexFlag: "g", replacement: null}));
 
     expect(processedEvent?.properties?.$regexed_url).toEqual(
       "https://www.bbc.com/news/world-us-canada-@@@@@"
     );
   });
 
-  it("should merge $regexed_url with $current_url as mergeFlag is set to True", () => {
-    const sourceEvent = buildPageViewEvent(
-      "https://www.bbc.com/news/world-us-canada-62986812"
-    );
-    const processedEvent = processEvent(sourceEvent, getMeta({regexPattern: '\\d+', regexFlag: "g", replacement: "NEWS",mergeFlag: true}));
-
-    expect(processedEvent?.properties?.$current_url).toEqual(
-      "https://www.bbc.com/news/world-us-canada-NEWS"
-    );
-  });
-
   it("shouldn't modify events that DON'T HAVE A $current_url property", () => {
     const sourceEvent = buildEventWithoutCurrentUrl();
-    const processedEvent = processEvent(sourceEvent, getMeta({regexPattern: '\\d+', regexFlag: "g", replacement: "NEWS", mergeFlag: false}));
+    const processedEvent = processEvent(sourceEvent, getMeta({regexPattern: '\\d+', regexFlag: "g", replacement: "NEWS"}));
 
     expect(processedEvent).toEqual(sourceEvent);
     expect(processedEvent?.properties).toEqual(sourceEvent.properties);
@@ -96,7 +85,7 @@ describe("processEvent", () => {
   it("should raise an error if the $current_url is an INVALID URL", () => {
     const sourceEvent = buildPageViewEvent("invalid url");
 
-    expect(() => processEvent(sourceEvent, getMeta({regexPattern: '\\d+', regexFlag: "g", replacement: "NEWS", mergeFlag: false})))
+    expect(() => processEvent(sourceEvent, getMeta({regexPattern: '\\d+', regexFlag: "g", replacement: "NEWS"})))
       .toThrowError(`Invalid URL!`);
   });
 
@@ -106,7 +95,7 @@ describe("processEvent", () => {
     const sourceEvent = buildPageViewEvent(
       "https://www.bbc.com/news/world-us-canada-62986812"
     );
-    processEvent(sourceEvent, getMeta({regexPattern: '\\d+', regexFlag: "g", replacement: "NEWS", mergeFlag: false}));
+    processEvent(sourceEvent, getMeta({regexPattern: '\\d+', regexFlag: "g", replacement: "NEWS"}));
 
     expect(consoleSpy).toHaveBeenCalledWith(
       'event.$current_url: "https://www.bbc.com/news/world-us-canada-62986812" regexed to "https://www.bbc.com/news/world-us-canada-NEWS"'

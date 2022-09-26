@@ -31,18 +31,6 @@
             "default": "@@@@@",
             "hint": "Enter the replacement String to be used",
             "required": false
-        },
-        {
-            "key": "mergeFlag",
-            "name": "Merge to $current_url?",
-            "type": "boolean",
-            "default": "true",
-            "hint": "True changes the value of $current_url to the regexed url value. False creates a new property for the event titled $regexed_url.",
-            "required": true,
-            "choices": [
-                "true",
-                "false"
-            ]
         }
     ]
 }

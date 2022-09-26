@@ -26,9 +26,6 @@ Using Regexed URLs will allow you to gain better insights from your url data, sp
 > global (`g`).
 > - `replacement` is an optional string that can be passed with your config to substitute values in the regex operation.
 > The default value for this is `@@@@@` (no reason in particular)
-> - `mergeFlag` is a boolean flag value that has to be passed with your config, and determines whether the regexed
-> output changes will be merged into the `properties.$current_url` field, else it creates a new column 
-> `properties$regexed_url` field
 >
 > ## Helpful Tip!
 > Always test out your desired regex expressions elsewhere before using this plugin, else you might get some nasty,
